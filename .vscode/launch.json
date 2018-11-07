@@ -1,0 +1,33 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug Increment Command",
+      "cwd": "${workspaceFolder}",
+      "sourceMaps": true,
+      "preLaunchTask": "npm: build",
+      "program": "${workspaceFolder}\\node_modules\\moleculer\\bin\\moleculer-runner.js",
+      "env": {
+        "PORT": "4000"
+      },
+      "stopOnEntry": false,
+      "localRoot": "${workspaceFolder}",
+      "outFiles": ["${workspaceFolder}/dist"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch",
+      "program": "${workspaceFolder}\\node_modules\\moleculer\\bin\\moleculer-runner.js",
+      "args": ["services"],
+      "env": {
+        "PORT": "4000"
+      }
+    }
+  ]
+}

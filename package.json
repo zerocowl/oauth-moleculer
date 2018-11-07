@@ -1,0 +1,69 @@
+{
+  "name": "oauth-moleculer",
+  "version": "1.0.0",
+  "description": "oauth2-server + moleculerjs",
+  "main": "index.js",
+  "scripts": {
+    "clear": "rm -rf dist && npm run build && docker-compose up -d --build",
+    "dev": "moleculer-runner --repl --hot --config moleculer.dev.config.js services",
+    "seeders": "cd src/repository && sequelize db:seed:all",
+    "start": "moleculer-runner --config  moleculer.config.js services",
+    "build": "./node_modules/.bin/babel src --out-dir dist",
+    "build:watch": "./node_modules/.bin/babel src --watch --out-dir dist",
+    "start:docker": "npm run build && docker-compose up -d --build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zerocowl/oauth-moleculer.git"
+  },
+  "keywords": [
+    "aouth2-server",
+    "moleculer",
+    "moleculerjs",
+    "oauth2"
+  ],
+  "author": "zerocool",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zerocowl/oauth-moleculer/issues"
+  },
+  "homepage": "https://github.com/zerocowl/oauth-moleculer#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^6.1.0",
+    "joi": "^14.0.4",
+    "moleculer": "^0.13.4",
+    "moleculer-web": "^0.8.2",
+    "mysql2": "^1.6.3",
+    "nats": "^1.0.1",
+    "oauth2-server": "^3.0.1",
+    "sequelize": "^4.41.0",
+    "ua-parser-js": "^0.7.19"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.1.5",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-proposal-decorators": "^7.1.2",
+    "@babel/plugin-syntax-object-rest-spread": "^7.0.0",
+    "@babel/plugin-transform-async-to-generator": "^7.1.0",
+    "@babel/preset-env": "^7.1.5",
+    "babel-eslint": "^10.0.1",
+    "babel-minify": "^0.5.0",
+    "babel-plugin-add-module-exports": "^1.0.0",
+    "babel-plugin-transform-decorators": "^6.24.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.5",
+    "eslint": "^5.8.0",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "moleculer-repl": "^0.5.2",
+    "prettier": "^1.15.1",
+    "prettier-eslint": "^8.8.2"
+  }
+}
