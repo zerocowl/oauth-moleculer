@@ -1,0 +1,28 @@
+{
+  "presets": [
+    [
+      "@babel/env",
+      {
+        "targets": {
+          "node": "current"
+        },
+        "useBuiltIns": "usage"
+      }    
+    ]   
+  ],
+  "plugins": [
+    "@babel/plugin-syntax-object-rest-spread",
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-transform-async-to-generator",
+    "add-module-exports"
+  ],
+  "sourceMaps": true,
+  "retainLines": true,
+  "env": {
+    "production": {
+      "presets": ["minify"],
+      "sourceMaps": true   
+    }
+  }
+}
