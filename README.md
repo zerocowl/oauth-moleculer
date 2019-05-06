@@ -11,10 +11,12 @@ The main project’s file is the `oauth_server.mixin.js`, I have the methods of 
 npm run clear
 npm run seeders
 ```
-Import the collection for your Postman and enjoy
+_Import the collection for your Postman and enjoy_
+
 
 ## References: 
-https://github.com/dsquier/oauth2-server-php-mysql https://github.com/manjeshpv/node-oauth2-server-implementation
+https://github.com/dsquier/oauth2-server-php-mysql  
+https://github.com/manjeshpv/node-oauth2-server-implementation  
 https://moleculer.services/docs/0.13/moleculer-web.html#Authentication
 
 
