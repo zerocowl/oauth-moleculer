@@ -1,22 +1,20 @@
 ## OAuth2 Server + MoleculerJS
 
-Esse projeto é uma exemplo de como implementar OAuth2 Server com MoleculerJS, no futuro pretendo converter isso para um módulo do MoleculerJS.
+This project is an example of how to implement OAuth2 Server with MoleculerJS, I pretend to convert this into a module of MoleculerJS in the future.
 
-A base do projeto é um  banco de dados(mysql) e o `repository.mixin.js` que é  basicamente um *moleculer-db-adapter*, criei ele pois tive algumas dificuldades em trabalhar com muitas entidades usando o `moleculer-db`, mas em resumo ele tem o mesmo proposito.
+The project’s base is a database (mysql) and the `repository.mixin.js` which is basically a `moleculer-db-adapter`, I’ve created it because I had some difficulties working with a lot of entities using the ‘moleculer-db’, but in other words, have the same purpose.
 
-O principal arquivo do projeto é o `oauth_server.mixin.js`, nele eu tenho os métodos do OAuth Server e implemento o `authenticate` que será injetado no API Gateway e basicamente será nosso método de autenticação, depois usando a opcao `authorization` eu posso proteger ou nao um endpoint da minha API.
+The main project’s file is the `oauth_server.mixin.js`, I have the methods of OAuth Server into it and I've implemented the `authenticate` which will be inserted into the API Gateway and will be basically the authentication method, after that I can protect, or not, an API endpoint using the option `authorization`.
 
 ## Getting started
 ```
 npm run clear
 npm run seeders
 ```
-
 Import the collection for your Postman and enjoy
 
 ## References: 
-https://github.com/dsquier/oauth2-server-php-mysql  
-https://github.com/manjeshpv/node-oauth2-server-implementation  
-https://moleculer.services/docs/0.13/moleculer-web.html#Authentication  
+https://github.com/dsquier/oauth2-server-php-mysql https://github.com/manjeshpv/node-oauth2-server-implementation
+https://moleculer.services/docs/0.13/moleculer-web.html#Authentication
 
 
