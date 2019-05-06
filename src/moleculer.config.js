@@ -2,7 +2,7 @@ import { JoiValidator } from './libs/joi.validator';
 
 export default {
   namespace: 'oauth-api',
-  transporter: 'NATS',
+  transporter: 'TCP',
   logger: true,
   logLevel: 'info',
   logFormatter: 'short',
