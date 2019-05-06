@@ -81,12 +81,7 @@ class Repository {
     const { model } = this.settings;
     const result = await model.findById(id, options);
     if (!result) {
-      throw new MoleculerError(
-        `No results found for id = ${id}`,
-        404,
-        'NO_RESULT',
-        null
-      );
+      throw new MoleculerError(`No results found for id = ${id}`, 404, 'NO_RESULT', null);
     }
     return result;
   }

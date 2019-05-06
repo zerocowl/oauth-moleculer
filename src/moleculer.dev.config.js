@@ -1,6 +1,6 @@
 export default {
-  namespace: 'core-api',
-  transporter: 'NATS',
+  namespace: 'oauth-api',
+  transporter: 'TCP',
   logger: true,
   logLevel: 'info',
   logFormatter: 'short',
@@ -9,6 +9,5 @@ export default {
     options: {
       maxParamsLength: 100
     }
-  },
-  metrics: true
+  }
 };
