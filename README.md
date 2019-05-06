@@ -15,7 +15,8 @@ npm run seeders
 Import the collection for your Postman and enjoy
 
 ## References: 
-https://github.com/dsquier/oauth2-server-php-mysql https://github.com/manjeshpv/node-oauth2-server-implementation
-https://moleculer.services/docs/0.13/moleculer-web.html#Authentication
+https://github.com/dsquier/oauth2-server-php-mysql  
+https://github.com/manjeshpv/node-oauth2-server-implementation  
+https://moleculer.services/docs/0.13/moleculer-web.html#Authentication  
 
 
