@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "2cac3ad2-0e55-42b2-a89e-33bcd3ddd391",
+		"_postman_id": "0488eb79-9615-458e-8516-eee149f0e636",
 		"name": "oauth2-moleculer",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -207,7 +207,10 @@
 								"value": "Bearer {{AccessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "http://localhost:3000/authorise?response_type=code&client_id=democlient&redirect_uri=http://localhost/cb&state=teststate&scope=profile",
 							"protocol": "http",
