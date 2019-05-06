@@ -16,14 +16,6 @@ services:
       - 'traefik.frontend.rule=PathPrefix:/'
     depends_on:
       - db
-      - nats
-
-  nats:
-    image: nats
-    ports:
-      - 4222:4222
-      - 8222:8222
-      - 6222:6222
   traefik:
     image: traefik
     command: --web --docker --docker.domain=docker.localhost --logLevel=INFO --docker.exposedbydefault=false
@@ -44,4 +36,3 @@ services:
       MYSQL_DATABASE: oauth_server_development
       MYSQL_USER: oauth_server
       MYSQL_PASSWORD: oauthserverpassword
-  
