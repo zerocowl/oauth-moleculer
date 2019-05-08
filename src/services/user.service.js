@@ -30,6 +30,9 @@ const Service = {
       ctx.meta.$statusCode = result ? 409 : 200;
       return result;
     }
+  },
+  started() {
+    this.db = require('../repository');
   }
 };
 

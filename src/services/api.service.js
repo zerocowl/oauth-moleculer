@@ -1,18 +1,16 @@
 'use strict';
 import ApiGateway from 'moleculer-web';
-import OAuthServer from '../mixins/oauth_server.mixin';
+import OAuth2Server from '../mixins/oauth_server.mixin';
 import { UAParser } from 'ua-parser-js';
+const IO = require('socket.io');
+
 const parser = new UAParser();
 module.exports = {
   name: 'api',
 
-  mixins: [ApiGateway, new OAuthServer()],
+  mixins: [ApiGateway, OAuth2Server],
 
   settings: {
-    assets: {
-      folder: 'public'
-    },
-
     callOptions: {
       timeout: 3000
     },
@@ -36,16 +34,10 @@ module.exports = {
 
     routes: [
       {
-        path: '/oauth',
+        path: '/oauth/token',
         aliases: {
-          'GET authorise'(req, res) {
-            this.GETAuthorize(req, res);
-          },
-          'POST authorise'(req, res) {
-            this.POSTAuthorize(req, res);
-          },
-          'POST token'(req, res) {
-            return this.token(req, res);
+          'POST /'(req, res) {
+            return this.authenticate(req, res);
           }
         },
         bodyParsers: {
@@ -98,5 +90,24 @@ module.exports = {
     'node.broken'(node) {
       this.logger.warn(`The ${node.id} node is disconnected!`);
     }
+  },
+  started() {
+    this.io = IO.listen(this.server);
+    this.io.on('connection', client => {
+      this.logger.info(`Client connected via websocket! ${client.id}`);
+      client.on('call', async ({ action, params, opts }, done) => {
+        this.logger.info('Received request from client! Action:', action, ', Params:', params);
+        try {
+          const res = await this.broker.call(action, params, opts);
+          done(res);
+        } catch (err) {
+          this.logger.error(err);
+        }
+      });
+
+      client.on('disconnect', () => {
+        this.logger.info(`Client disconnected`);
+      });
+    });
   }
 };
