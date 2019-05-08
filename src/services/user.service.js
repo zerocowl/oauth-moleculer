@@ -19,10 +19,9 @@ const Service = {
 
     async exists(ctx) {
       const { model } = this.settings;
-      const { msisdn, cpf, email } = ctx.params;
+      const { msisdn, email } = ctx.params;
       let query = {};
       if (msisdn) query = { msisdn: msisdn };
-      if (cpf) query = { cpf: cpf };
       if (email) query = { email: email };
       const count = await model.count({ where: query });
       const result = count > 0;
