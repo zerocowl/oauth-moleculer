@@ -29,6 +29,9 @@ export default function(sequelize, DataTypes) {
       password_reset_token_expires_at: DataTypes.DATE,
       scope: {
         defaultValue: 'profile',
+        get() {
+          return this.getDataValue('scope').split(', ');
+        },
         type: DataTypes.STRING
       }
     },
