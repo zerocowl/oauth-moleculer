@@ -1,21 +1,20 @@
-import Repository from '../mixins/repository.mixin';
-
 const Service = {
   name: 'user',
 
-  mixins: [new Repository('User')],
-
   actions: {
     create(ctx) {
-      return this.create(ctx.params);
+      const db = this.db;
+      return db.User.create(ctx.params);
     },
 
     findById(ctx) {
-      return this.findById(ctx.params.id);
+      const db = this.db;
+      return db.User.findByPk(ctx.params.id);
     },
 
     list() {
-      return this.list();
+      const db = this.db;
+      return db.User.findAndCountAll();
     },
 
     async exists(ctx) {
