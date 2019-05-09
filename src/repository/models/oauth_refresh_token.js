@@ -15,10 +15,12 @@ export default function(sequelize, DataTypes) {
 
   OAuthRefreshToken.associate = models => {
     models.OAuthRefreshToken.belongsTo(models.OAuthClient, {
+      as: 'client',
       foreignKey: 'client_id'
     });
 
     models.OAuthRefreshToken.belongsTo(models.User, {
+      as: 'user',
       foreignKey: 'user_id'
     });
   };
