@@ -84,13 +84,12 @@ module.exports = {
       const db = this.db;
       const { Op } = db.Sequelize;
       try {
-        let cpf = username;
         let email = username;
         let msisdn = username;
         if (msisdn.length < 13) msisdn = '55'.concat(msisdn);
         const user = await db.User.scope('oauth').findOne({
           where: {
-            [Op.or]: [{ msisdn }, { cpf }, { email }]
+            [Op.or]: [{ msisdn }, { email }]
           }
         });
         if (!user) throw new MoleculerError(`User not found, ${username}`, 404);

@@ -28,7 +28,8 @@ export default function(sequelize, DataTypes) {
       password_reset_token: DataTypes.STRING,
       password_reset_token_expires_at: DataTypes.DATE,
       scope: {
-        defaultValue: 'profile',
+        allowNull: false,
+        defaultValue: 'admin',
         get() {
           return this.getDataValue('scope').split(', ');
         },
@@ -36,7 +37,29 @@ export default function(sequelize, DataTypes) {
       }
     },
     {
-      tableName: 'users', // oauth_users
+      defaultScope: {
+        attributes: {
+          include: [
+            [
+              sequelize.literal(
+                "(case when password is not null and password != '' then true else false end)"
+              ),
+              'has_password'
+            ]
+          ],
+          exclude: [
+            'password',
+            'password_reset_token',
+            'password_reset_token_expires_at',
+            'created_at',
+            'updated_at'
+          ]
+        }
+      },
+      scopes: {
+        oauth: {}
+      },
+      tableName: 'users',
       underscored: true,
       paranoid: process.env.NODE_ENV === 'production'
     }
