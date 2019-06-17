@@ -16,7 +16,7 @@ module.exports = {
         created_at: new Date(),
         email: 'admin@oauth.com',
         msisdn: '5511961161212',
-        password: null,
+        password: hashSync('$@dmin$', 10),
         updated_at: new Date()
       }
     ]);
