@@ -20,7 +20,7 @@ module.exports = {
         grant_types: 'password',
         name: 'mobile',
         redirect_uri: 'http://localhost/cb',
-        scope: 'admin',
+        scope: 'mobile',
         updated_at: new Date()
       }
     ]);

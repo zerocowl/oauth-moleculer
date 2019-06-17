@@ -1,6 +1,6 @@
 {
   "name": "oauth-moleculer",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "oauth2-server + moleculerjs",
   "main": "index.js",
   "scripts": {
@@ -40,6 +40,7 @@
     "oauth2-server": "^3.0.1",
     "sequelize": "^5.8.5",
     "sequelize-cli": "^5.4.0",
+    "socketio": "^1.0.0",
     "ua-parser-js": "^0.7.19"
   },
   "devDependencies": {
